@@ -1,0 +1,14 @@
+<%include header.ejs%>
+<link type="text/css" rel="stylesheet" href="stylesheets/main.css">
+    <div class="container container-search">
+        <div class="row row-search">
+            <div class="jumbotron search centering text-center">
+                <h1>Search for a movie or show</h1>
+                <form action="/results" method="GET">
+                    <input class="form-control" type="text" required name="search" placeholder="Search">
+                    <input class="form-control" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+<%include footer.ejs%>

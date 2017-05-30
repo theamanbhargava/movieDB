@@ -1,0 +1,38 @@
+<%include header.ejs%>
+<link href="stylesheets/view.css" type="text/css" rel="stylesheet">
+<div class="container">
+    <h1 class="text-center">Results page</h1>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% data.Search.forEach(function(movie){ %>
+        <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="thumbnail well">
+                <img src="<%=movie.Poster%>">
+                <div class="caption">
+                    <h5 id="type"><em><%=movie.Type%></em></h5>
+                    <h4>
+                        <strong><%= movie.Title %></strong>
+                        - <%=movie.Year%>
+                    </h4>
+                    <h5>
+                        <%=movie.plot.Plot%>
+                    </h5>
+                </div>
+                    <h5 style="color: #9f0b6a">
+                        <i class="fa fa-language" aria-hidden="true"> <%=movie.plot.Language%>,</i>
+                        <i class="fa fa-globe" aria-hidden="true"> <%=movie.plot.Country%>,</i>
+
+                        <em><%=movie.plot.Runtime%></em>
+                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                    </h5>
+                    <p>
+                        <a href="/results/<%=movie.imdbID%>">Get more info</a>
+                    </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+        <div class="jumbotron text-center">
+            <h1><a href="/">Search again!</a></h1>
+        </div>
+<%include footer.ejs%>

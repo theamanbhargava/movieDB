@@ -1,0 +1,35 @@
+.thumbnail {
+	padding: 0;
+}
+
+.thumbnail .caption-full {
+	padding: 9px;
+}
+
+#poster{
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.force-to-bottom {
+	position:absolute;
+	bottom: 5%;
+	width: 100%;
+}
+
+#type{
+	text-transform: capitalize;
+}
+
+.plot{
+	text-align: left;
+}
+
+.jumbotron > p {
+	font-size: 1.25em;
+}
+
+.caption >h4, h5{
+	font-size: 1.25em;
+}

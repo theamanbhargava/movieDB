@@ -1,0 +1,67 @@
+<%include header.ejs%>
+<link href="../stylesheets/style.css" type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="../stylesheets/style.css">
+    <div class="thumbnail text-center well">
+        <div id="poster" class="jumbotron">
+            <img src="<%=movie.Poster%>">
+        </div>
+        <div class="caption">
+            <h5 id="type"><em><%=movie.Type%></em></h5>
+            <h4>
+                <strong><%= movie.Title %></strong>
+                - <%=movie.Year%>
+            </h4>
+            <h6><%=movie.imdbVotes%> People have <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                this movie on IMDB
+                <br>
+                Rated <%=movie.imdbRating%><i class="fa fa-star" aria-hidden="true"></i> on IMDB
+            </h6>
+            <h5 class="plot">
+                <%=movie.Plot%>
+            </h5>
+        </div>
+        <div class="caption">
+            <div class="jumbotron moreInfo" id="moreInfo" style="text-align: left;">
+                <h2>More information : </h2>
+                <p>Directed by <a href="https://en.wikipedia.org/w/index.php?title=Special:Search&search=<%=movie.Director%>&fulltext=1&profile=default"><%=movie.Director%></a></p>
+                <p>Written by <a href="https://en.wikipedia.org/w/index.php?title=Special:Search&search=<%=movie.Writer%>&fulltext=1&profile=default"><%=movie.Writer%></a></p>
+                <p> Starring :
+                <%movie.Actors.split(',').forEach(function(actor){%>
+                    <a href="https://en.wikipedia.org/w/index.php?title=Special:Search&search=<%=actor%>&fulltext=1&profile=default" class="actorLink"> <%=actor%></a>
+                <%})%>
+                </p>
+                <p> Genre :
+                    <%movie.Genre.split(',').forEach(function(genre){%>
+                        <%=genre%>
+                    <%})%>
+                </p>
+                <p>
+                    Release Date : <%=movie.Released%>
+                </p>
+                <p><i class="fa fa-2x fa-star" aria-hidden="true"></i>Ratings :
+                    <%movie.Ratings.forEach(function(rating){ %>
+                        <%if (rating.Source =="Internet Movie Database") { %>
+                            <i class="fa fa-2x fa-imdb" aria-hidden="true"></i>
+                        <%} else {%>
+                            <i class="fa fa-2x fa-star-o" aria-hidden="true"></i>
+                        <%}%>
+                        <%=rating.Source%> - <%=rating.Value%>
+                    <%})%>
+                </p>
+                <p>
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                    Box Office Gross : <%=movie.BoxOffice%>
+                    <br>
+                    <span>Produced by : <%=movie.Production%></span>
+                    <span><a href="<%=movie.Website%>">Website</a></span>
+                </p>
+            </div>
+        </div>
+        <h5 style="color: #9f0b6a">
+            <i class="fa fa-language" aria-hidden="true"> <%=movie.Language%>,</i>
+            <i class="fa fa-globe" aria-hidden="true"> <%=movie.Country%>,</i>
+            <em><%=movie.Runtime%></em>
+            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+        </h5>
+    </div>
+<%include footer.ejs%>
